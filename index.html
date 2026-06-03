@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ActiveMimic unlocks egocentric human video for robot pretraining through active perception and human-to-robot transfer.">
+  <meta name="keywords" content="ActiveMimic, egocentric video, robot pretraining, active perception, robot learning, imitation learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ActiveMimic: Egocentric Video Pretraining with Active Perception</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script type="module" src="./static/js/overview-pdf.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://github.com/leolin9248">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Search
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://arxiv.org/abs/2509.15061">
+            Ask-to-Clarify: Resolving Instruction Ambiguity through Multi-turn Dialogue
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero video-hero">
+  <video class="video-hero-background" autoplay muted loop playsinline>
+    <source src="./static/videos-compress/activemimic-hero.mp4"
+            type="video/mp4">
+  </video>
+  <div class="video-hero-overlay"></div>
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ActiveMimic</h1>
+          <h2 class="subtitle is-2 publication-subtitle">Egocentric Video Pretraining with Active Perception</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    &#9660; Scroll down the page to find more &#9660;
+  </div>
+</section>
+
+<section class="section publication-header">
+  <div class="container is-max-widescreen publication-header-container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h1 class="title is-2 publication-page-title">ActiveMimic: Egocentric Video Pretraining<br>with Active Perception</h1>
+        <div class="is-size-4 publication-authors">
+          <div>
+            <span class="author-block">
+              <a href="mailto:xingyaolin25@m.fudan.edu.cn">Xingyao Lin</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="mailto:gjzhong25@m.fudan.edu.cn">Guojin Zhong</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="mailto:tylu25@m.fudan.edu.cn">Tianyi Lu</a><sup>1</sup>
+            </span>
+          </div>
+          <div>
+            <span class="author-block">
+              <a href="https://ziyiye.cn/">Ziyi Ye</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://zhu-yichen.github.io/">Yichen Zhu</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://zxwu.azurewebsites.net/">Zuxuan Wu</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://teai.fudan.edu.cn/">Yu-Gang Jiang</a><sup>1</sup>
+            </span>
+          </div>
+        </div>
+
+        <div class="is-size-4 publication-authors">
+          <span class="author-block"><sup>1</sup>Fudan University,</span>
+          <span class="author-block"><sup>2</sup>Shanghai Innovation Institute,</span>
+          <span class="author-block"><sup>3</sup>Current Robotics</span>
+        </div>
+
+        <div class="publication-links">
+          <span class="link-block">
+            <a aria-disabled="true"
+               class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+              </span>
+              <span>Paper (Coming soon)</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a aria-disabled="true"
+               class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv (Coming soon)</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="#activemimic-video-player"
+               class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="fab fa-youtube"></i>
+              </span>
+              <span>Video</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="activemimic-video">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Egocentric human video offers a scalable alternative to robot data for pretraining, yet models pretrained on such video consistently underperform those pretrained on robot data.
+Existing approaches construct proxy action labels to bridge this gap but overlook a key signal, the active perception behavior in egocentric recordings, where humans continuously reposition their viewpoint through head and body movements during manipulation, inducing substantial camera motion that standard pipelines treat as noise rather than a meaningful learning signal.
+To address this, we present <strong>ActiveMimic</strong>, a pretraining framework that recovers synchronized camera and wrist trajectories from a single body-worn RGB camera, models camera motion as a viewpoint action, and jointly learns active perception and manipulation from in-the-wild egocentric human video before adapting to a target robot.
+Empirically, real-world experiments across tasks with diverse active perception demands show that ActiveMimic consistently surpasses baselines pretrained on human video and matches state-of-the-art models pretrained on robot data.
+Further analysis provides evidence that active perception capability originates from egocentric human video pretraining rather than robot-specific fine-tuning, and that camera motion supervision enables human-to-robot representational transfer by preserving egocentric perceptual representations when the observation modality shifts from a single egocentric viewpoint to the head and wrist cameras of the robot, establishing a representational bridge from human perception to robot control.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <div class="video-placeholder" id="activemimic-video-player">
+          <video controls playsinline preload="metadata">
+            <source src="./static/videos-compress/activemimic-video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Overview of ActiveMimic</h2>
+        <div class="content has-text-justified overview-copy">
+          <div class="overview-subsection">
+            <h3 class="title is-4">Active Perception as the Missing Signal</h3>
+            <p>
+              ActiveMimic treats egocentric camera motion as a viewpoint action rather than noise, allowing the model to learn how humans actively reposition
+  their view while manipulating objects. During everyday tasks, humans continuously adjust their gaze through head and body movements to gather
+  visual evidence before acting. ActiveMimic captures this behavior by extracting both camera motion and wrist action from in-the-wild egocentric
+  video and encoding them into a unified 27-dimensional action representation. This unified representation enables the model to jointly learn the
+  coupled dynamics of viewpoint motion and manipulation. After pretraining, the acquired active perception capability transfers to a real-world
+  humanoid robot, which actively repositions its viewpoint during task execution.
+            </p>
+            <div class="overview-figure">
+              <canvas class="overview-pdf-canvas" data-pdf="./static/images/teaser.pdf" aria-label="ActiveMimic teaser overview"></canvas>
+            </div>
+          </div>
+          <div class="overview-subsection">
+            <h3 class="title is-4">From Egocentric Video to Robot Control</h3>
+            <p>
+              From a single body-worn RGB camera, ActiveMimic recovers synchronized camera and wrist trajectories using off-the-shelf vision models, without
+  requiring any additional sensors or controlled capture conditions. Because camera motion and wrist motion are inherently coupled in egocentric
+  video, ActiveMimic resolves this coupling by re-expressing all poses in a common reference frame and encoding them as a unified 27D action
+  vector. A model is then pretrained on this structured action to jointly predict future viewpoint and wrist motion from egocentric
+  observations. The pretrained model is adapted to the target robot with robot-specific demonstrations, aligning pretraining and deployment around
+   the same underlying behavior: actively acquiring visual information to support manipulation.
+            </p>
+            <div class="overview-figure">
+              <canvas class="overview-pdf-canvas" data-pdf="./static/images/framework.pdf" aria-label="ActiveMimic framework overview"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Experiments</h2>
+        <div class="content has-text-justified">
+          <div class="experiment-task">
+            <h3 class="title is-4">Task 1: Restocking</h3>
+            <p>
+              The robot crouches to pick up a water bottle from the table, stands and looks up to scan the shelf, and then places the bottle into an empty slot.
+            </p>
+            <div class="experiment-carousel" data-carousel data-playback-rate="1.5">
+              <button class="experiment-carousel-button experiment-carousel-prev" type="button" aria-label="Previous restocking video">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="experiment-carousel-track">
+                <div class="experiment-video-panel is-active">
+                  <div class="experiment-video-label">High Shelf (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/restocking-third-high.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Head Camera - High Shelf (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/restocking-egocentric-high.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Mid Shelf (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/restocking-third-mid.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Head Camera - Mid Shelf (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/restocking-egocentric-mid.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Low Shelf (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/restocking-third-low.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Low Shelf - Head Camera (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/restocking-egocentric-low.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <button class="experiment-carousel-button experiment-carousel-next" type="button" aria-label="Next restocking video">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="experiment-carousel-dots" aria-label="Restocking video selector"></div>
+            </div>
+          </div>
+
+          <div class="experiment-task">
+            <h3 class="title is-4">Task 2: Reaching</h3>
+            <p>
+              The robot reaches over an obstacle to grasp a target object, requiring coordinated head, torso, and arm motion.
+            </p>
+            <div class="experiment-carousel" data-carousel data-playback-rate="1.5">
+              <button class="experiment-carousel-button experiment-carousel-prev" type="button" aria-label="Previous reaching video">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="experiment-carousel-track">
+                <div class="experiment-video-panel is-active">
+                  <div class="experiment-video-label">Reaching - Third View (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/reaching-third-view.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Reaching - Head Camera (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/reaching-egocentric.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <button class="experiment-carousel-button experiment-carousel-next" type="button" aria-label="Next reaching video">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="experiment-carousel-dots" aria-label="Reaching video selector"></div>
+            </div>
+          </div>
+
+          <div class="experiment-task">
+            <h3 class="title is-4">Task 3: Finding</h3>
+            <p>
+              The robot actively searches for the target object by moving its viewpoint before selecting the correct arm to grasp it.
+            </p>
+            <div class="experiment-carousel" data-carousel data-playback-rate="1.5">
+              <button class="experiment-carousel-button experiment-carousel-prev" type="button" aria-label="Previous finding video">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="experiment-carousel-track">
+                <div class="experiment-video-panel is-active">
+                  <div class="experiment-video-label">Finding Left - Third View (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/find-left-third-view.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Finding Left - Head Camera (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/find-left-egocentric.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Finding Right - Third View (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/find-right-third-view.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Finding Right - Head Camera (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/find-right-egocentric.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <button class="experiment-carousel-button experiment-carousel-next" type="button" aria-label="Next finding video">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="experiment-carousel-dots" aria-label="Finding video selector"></div>
+            </div>
+          </div>
+
+          <div class="experiment-task">
+            <h3 class="title is-4">Task 4: Pouring</h3>
+            <p>
+              The robot coordinates both arms to transfer liquid between two containers while maintaining close-range visual feedback.
+            </p>
+            <div class="experiment-carousel" data-carousel data-playback-rate="1.5">
+              <button class="experiment-carousel-button experiment-carousel-prev" type="button" aria-label="Previous pouring video">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="experiment-carousel-track">
+                <div class="experiment-video-panel is-active">
+                  <div class="experiment-video-label">Pouring - Third View (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/pouring-third-view.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="experiment-video-panel">
+                  <div class="experiment-video-label">Pouring - Head Camera (autonomous, 1.5x)</div>
+                  <video class="experiment-video" autoplay muted loop playsinline>
+                    <source src="./static/videos-compress/pouring-egocentric.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <button class="experiment-carousel-button experiment-carousel-next" type="button" aria-label="Next pouring video">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="experiment-carousel-dots" aria-label="Pouring video selector"></div>
+            </div>
+          </div>
+
+          <div class="experiment-task">
+            <h3 class="title is-4">Real-world Results</h3>
+            <p>
+              ActiveMimic surpasses all baselines across the four real-world tasks, achieving 90.1% on Restocking, 88.9% on Reaching, 91.7% on Finding, and 93.3% on Pouring. The gains over wrist-only and SFT-only variants show that camera motion supervision is the key differentiating signal, while the strong results against pi0 suggest that egocentric video pretraining can match robot-data pretraining and provide unique active-perception advantages.
+            </p>
+            <div class="overview-figure">
+              <canvas class="overview-pdf-canvas" data-pdf="./static/images/main_results.pdf" aria-label="ActiveMimic real-world experiment results"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Conclusion</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce ActiveMimic, an active-perception-aware pretraining framework for in-the-wild egocentric video. Across real-world tasks, ActiveMimic consistently surpasses baselines pretrained on human video, confirming active perception as the key missing ingredient for unlocking egocentric human video pretraining. We further provide evidence that active perception capability originates from egocentric pretraining and transfers from human to robot, establishing a representational bridge from human perception to robot control.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">BibTeX</h2>
+        <div class="content">
+          <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- Visitor map -->
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <h3 class="title is-5">Visitor Map</h3>
+            <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=WXydmoeV5NW2aELrxzwFx6e2Jirhbw5jrS5Geip1pQY&cl=ffffff&w=a"></script>
+          </div>
+
+          <p style="text-align: center; font-size: 0.9rem; color: #666;">
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. Modified upon original <a href="https://nerfies.github.io/" target="_blank"> Nerfies </a> website
+            (<a href="https://github.com/nerfies/nerfies.github.io" target="_blank">source</a>).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
