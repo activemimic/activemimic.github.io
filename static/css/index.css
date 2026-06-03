@@ -55,6 +55,19 @@ body {
   background: rgba(0, 0, 0, 0.42);
 }
 
+.video-hero-loading-note {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+}
+
 .video-hero .publication-title,
 .video-hero .publication-subtitle,
 .video-hero .publication-authors {
