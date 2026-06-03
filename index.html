@@ -171,11 +171,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Egocentric human video offers a scalable alternative to robot data for pretraining, yet models pretrained on such video consistently underperform those pretrained on robot data.
-Existing approaches construct proxy action labels to bridge this gap but overlook a key signal, the active perception behavior in egocentric recordings, where humans continuously reposition their viewpoint through head and body movements during manipulation, inducing substantial camera motion that standard pipelines treat as noise rather than a meaningful learning signal.
+            Egocentric human video offers a scalable alternative to robot data for pretraining, yet models pretrained on such video consistently underperform those pretrained on robot data. We attribute this gap to a missing signal, the active perception behavior in egocentric videos, where humans continuously reposition their viewpoint during manipulation, inducing camera motion that standard pipelines treat as noise.
 To address this, we present <strong>ActiveMimic</strong>, a pretraining framework that recovers synchronized camera and wrist trajectories from a single body-worn RGB camera, models camera motion as a viewpoint action, and jointly learns active perception and manipulation from in-the-wild egocentric human video before adapting to a target robot.
 Empirically, real-world experiments across tasks with diverse active perception demands show that ActiveMimic consistently surpasses baselines pretrained on human video and matches state-of-the-art models pretrained on robot data.
-Further analysis provides evidence that active perception capability originates from egocentric human video pretraining rather than robot-specific fine-tuning, and that camera motion supervision enables human-to-robot representational transfer by preserving egocentric perceptual representations when the observation modality shifts from a single egocentric viewpoint to the head and wrist cameras of the robot, establishing a representational bridge from human perception to robot control.
+Further analysis provides evidence that active perception capability originates from egocentric human video pretraining rather than robot-specific fine-tuning, confirming active perception as the key to unlocking egocentric human video for robot pretraining.
 
           </p>
         </div>
@@ -423,7 +422,7 @@ Further analysis provides evidence that active perception capability originates 
         <h2 class="title is-3">Conclusion</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce ActiveMimic, an active-perception-aware pretraining framework for in-the-wild egocentric video. Across real-world tasks, ActiveMimic consistently surpasses baselines pretrained on human video, confirming active perception as the key missing ingredient for unlocking egocentric human video pretraining. We further provide evidence that active perception capability originates from egocentric pretraining and transfers from human to robot, establishing a representational bridge from human perception to robot control.
+            We introduce ActiveMimic, an active-perception-aware pretraining framework for in-the-wild egocentric video. Across real-world tasks, ActiveMimic consistently surpasses baselines pretrained on human video, confirming active perception as the key missing ingredient for unlocking egocentric human video pretraining. We further provide evidence that active perception originates from egocentric pretraining and that camera motion supervision facilitates representational transfer from human perception to robot control.
           </p>
         </div>
       </div>
