@@ -86,7 +86,7 @@ body {
   font-weight: 600;
   font-size: 1.7rem;
   line-height: 1.05;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.25rem;
   white-space: nowrap;
 }
 
@@ -95,6 +95,26 @@ body {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+.hero-conference {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  margin-top: 0;
+  color: #bf5700;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  font-family: 'Google Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.hero-conference img {
+  display: block;
+  width: 2em;
+  height: 1em;
+  object-fit: contain;
 }
 
 .publication-header {
